@@ -1,0 +1,83 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<div class="row mt-4">
+  <div class="col-md-8">
+    {% with messages = get_flashed_messages() %} 
+    
+      {% if messages %} 
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>{{ message }}</strong>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %} 
+      {% endif %} 
+    {% endwith %}
+
+    <h3>Bot Functionalities</h3>
+    <div class="card border-primary mb-2 w-100">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{{ url_for('retweet') }}" class=""
+            >Retweet all tweets from @username</a
+          >
+        </h5>
+        <p class="card-text">
+          Retweet all tweet from specified users by listing their handles
+        </p>
+      </div>
+    </div>
+
+    <div class="card border-primary mb-2 w-100">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{{ url_for('like_tweet') }}">Like Tweets by some hashtags</a>
+        </h5>
+        <p class="card-text">
+          Here you get to favorite tweet based on some hashtags or keywords you
+          specified input the text you want to reply with and interval between
+          those replies.
+        </p>
+      </div>
+    </div>
+
+    <div class="card border-primary mb-2 w-100">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{{ url_for('reply_tweet') }}">Reply to Tweets</a>
+        </h5>
+        <p class="card-text">
+          Here you get to reply to based on some hashtags or keywords you
+          specified input the text you want to reply with and interval between
+          those replies.
+        </p>
+      </div>
+    </div>
+
+    <div class="card border-primary mb-2 w-100">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{{ url_for('rssfeed') }}">Post Article from RSS feeds</a>
+        </h5>
+        <p class="card-text">
+          By listing some RSS feeds it tweets from it on some time interval
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">  
+    <a class="twitter-timeline" data-height="800" data-theme="light" href="https://twitter.com/{{ session['twitter_oauth_token']['screen_name'] }}?ref_src=twsrc%5Etfw">
+      Tweets by {{ session['twitter_oauth_token']['screen_name'] }}
+    </a> 
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+</div>
+{% endblock %}

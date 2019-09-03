@@ -1,0 +1,47 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<div class="row mt-3">
+  <div class="col-md-7 mx-auto">
+    <h4>Reply tweet based on hashtags or keywords</h4>
+    <form action="{{ url_for('reply_tweet') }}" method="POST">
+      <div class="form-group">
+        <label>Keywords to watch, each on newline</label>
+        <textarea
+          name="keywords_to_watch"
+          id=""
+          cols="30"
+          rows="6"
+          class="form-control"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Text or comment to reply with, each on a newline</label>
+        <textarea
+          name="replies"
+          id=""
+          cols="30"
+          rows="6"
+          class="form-control"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label
+          >Schedule to time to reply to tweet every (N) minutes specified below:
+        </label>
+        <input
+          type="number"
+          class="form-control"
+          value="30"
+          name="schedule_time_to_reply"
+        />
+      </div>
+
+      <button class="btn btn-primary w-100 mb-3">Start</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

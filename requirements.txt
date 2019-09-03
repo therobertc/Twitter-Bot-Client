@@ -1,0 +1,11 @@
+gunicorn
+bs4
+requests
+manage
+flask
+feedparser
+twython
+apscheduler
+flask-dance
+flask-sqlalchemy
+psycopg2

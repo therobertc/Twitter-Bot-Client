@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3 class="text-center">Bot Status</h3>
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <div class="card text-white bg-primary mb-3 w-100">
+      <div class="card-header">Retweet Config</div>
+      <div class="card-body">
+        {% if retweet %}
+          <p class="card-text">
+            <h5>handles:</h5> {{ retweet.handles }}
+            <h5>Time interval: </h5> {{ retweet.checking_timeline_interval }}
+          </p>
+
+        {% else %}
+           <p class="card-text">
+            <h5>Keywords: N/A</h5> 
+            <h5>Time interval: N/A</h5>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <div class="card text-white bg-primary mb-3 w-100">
+      <div class="card-header">Like Config</div>
+      <div class="card-body">
+        {% if like %}
+          <p class="card-text">
+            <h5>Keywords:</h5> {{ like.keywords_or_hashtags }}
+            <h5>Time interval: </h5> {{ like.checking_keywords_interval }}
+          </p>
+
+        {% else %}
+           <p class="card-text">
+            <h5>Keywords: N/A</h5> 
+            <h5>Time interval: N/A</h5>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <div class="card text-white bg-primary mb-3 w-100">
+      <div class="card-header">Reply Config</div>
+      <div class="card-body">
+        {% if reply %}
+          <p class="card-text">
+            <h5>Keywords:</h5> {{ reply.keywords_or_hashtags }}
+            <h5>Replies:</h5> {{ reply.replies }}
+            <h5>Time interval: </h5> {{ reply.checking_keywords_interval }}
+          </p>
+
+        {% else %}
+           <p class="card-text">
+            <h5>Keywords: N/A</h5> 
+            <h5>Replies: N/A</h5> 
+            <h5>Time interval: N/A</h5>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <div class="card text-white bg-primary mb-3 w-100">
+      <div class="card-header">Rssfeed Config</div>
+      <div class="card-body">
+        {% if rssfeed %}
+          <p class="card-text">
+            <h5>Rssfeed URLs:</h5> {{ rssfeed.feed_url }}
+            <h5>Time interval: </h5> {{ rssfeed.checking_feed_interval }}
+          </p>
+
+        {% else %}
+           <p class="card-text">
+            <h5>Rssfeed URLs: N/A</h5> 
+            <h5>Time interval: N/A</h5>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

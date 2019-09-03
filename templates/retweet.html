@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="row">
+  <div class="col-md-7 mx-auto mt-3">
+    <h3>Retweet from @Handles</h3>
+    <form action="" method="post">
+      <div class="form-group">
+        <label>handles to watch each on newline</label>
+        <textarea
+          name="handles_to_watch"
+          id=""
+          cols="30"
+          rows="6"
+          class="form-control"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label
+          >Interval between Checking the handles for tweets in minutes:
+        </label>
+        <input type="number" class="form-control" value="30" name="checking_timeline_interval"/>
+      </div>
+
+      <button class="btn btn-primary w-100">Start</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
